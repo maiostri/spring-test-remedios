@@ -28,6 +28,12 @@ public class RemedioController {
         return new ResponseEntity<>(remedio, HttpStatus.OK);
     }
 
+    @PutMapping
+    public ResponseEntity<Remedio> atualizaRemedio(@RequestBody Remedio novoRemedio) {
+        Remedio remedio = remedioService.atualizaRemedio(novoRemedio);
+        return new ResponseEntity<>(remedio, HttpStatus.OK);
+    }
+
     @GetMapping
     public ResponseEntity<List<Remedio>> listarRemedios() {
         List<Remedio> listaRemedios = remedioService.listarRemedios();

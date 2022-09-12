@@ -36,4 +36,15 @@ public class RemedioService {
         remedioRepository.delete(remedio);
         return remedio;
     }
+
+    public Remedio atualizaRemedio(Remedio novoRemedio) {
+        Remedio remedioBanco = this.buscaPorId(novoRemedio.getId());
+
+        remedioBanco.setDescricao(novoRemedio.getDescricao());
+        remedioBanco.setNome(novoRemedio.getNome());
+        remedioBanco.setPreco(novoRemedio.getPreco());
+        remedioBanco.setListaDeCompostos(novoRemedio.getListaDeCompostos());
+
+        return this.adicionaRemedio(remedioBanco);
+    }
 }
