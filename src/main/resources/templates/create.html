@@ -15,6 +15,7 @@
                 <th>Nome</th>
                 <th>Descriçao</th>
                 <th>Preço</th>
+                <th>Compostos</th>
             </tr>
             </thead>
             <tbody>
@@ -28,13 +29,21 @@
                     <td><input name="preco" th:field="*{preco}"/>
                         <div th:if="${#fields.hasErrors('preco')}" th:errors="*{preco}"></div>
                     </td>
+                    <td>
+                        <div th:each="composto, compostoStat: *{listaDeCompostos}">
+                            <select th:field="*{listaDeCompostos[__${compostoStat.index}__]}">
+                                <option th:each="composto: ${compostos}" th:value="${composto.id}" th:text="${composto.nome}">
+                                </option>
+                            </select>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
         <fieldset>
             <input type="submit" id="submitButton" th:value="Salvar">
             <input type="reset" id="resetButton" th:value="Resetar">
-        </fieldset>
+        </select>
     </form>
 </body>
 </html>

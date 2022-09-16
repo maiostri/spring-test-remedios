@@ -14,6 +14,7 @@
         <th>Nome</th>
         <th>Descrição</th>
         <th>Preço</th>
+        <th>Compostos</th>
     </tr>
     <tr>
     <tr th:each="rem : ${remedios}">
@@ -21,6 +22,8 @@
         <td><span name="nome" th:text="${rem.nome}"></span></td>
         <td><span name="descricao" th:text="${rem.descricao}"></span></td>
         <td><span name="preco" th:text="${rem.preco}"></span></td>
+        <td><span name="compostos" th:each="composto : ${rem.listaDeCompostos}" th:text="${composto.nome} "></span>
+        </td>
         </th>
     </tr>
 </table>
